@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 async function getDatos(){
     const response = await fetch("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=0wYvx3BOlpmF8IVe2RIV0DK1IZv7vXY1");
     const data = await response.json()
@@ -8,6 +10,11 @@ async function getDatos(){
 getDatos()
 
 export const Main = () => {
+
+    const [ news, setNews ] = useState({
+        newsList: []
+    })
+
     return(
         <section>
             <h1>Título</h1>
