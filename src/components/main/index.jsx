@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 async function getDatos(){
@@ -7,13 +8,23 @@ async function getDatos(){
     return data.results
 }
 
-getDatos()
-
 export const Main = () => {
 
     const [ news, setNews ] = useState({
         newsList: []
     })
+
+    useEffect( () => {
+        const fetchData = async () => {
+            const data = await getDatos();
+
+            setNews({
+                newsList: data
+            })
+        }
+
+        fetchData()
+    }, [])
 
     return(
         <section>
