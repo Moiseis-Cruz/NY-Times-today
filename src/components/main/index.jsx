@@ -28,7 +28,20 @@ export const Main = () => {
 
     return(
         <section>
-            <h1>Título</h1>
+            <ul>
+                {
+                    news.newsList.map((item, index) => {
+                        return(
+                            <li key={index}>
+                                <div>
+                                    <h2>{item.title}</h2>
+                                    <img src={item.multimedia[1].url} />
+                                </div>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </section>
     )
 }
