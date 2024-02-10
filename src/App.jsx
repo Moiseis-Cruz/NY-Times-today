@@ -1,11 +1,12 @@
 import './App.css'
-import { Main } from './components/main'
+import { AppRoutes } from './pages/routes'
+
 
 function App() {
 
   return (
     <>
-      <Main />
+      <AppRoutes />
     </>
   )
 }
