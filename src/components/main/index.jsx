@@ -34,7 +34,7 @@ export const Main = () => {
                             <li key={index}>
                                 <div>
                                     <h2>{item.title}</h2>
-                                    <img src={item.multimedia[1].url} />
+                                    {/* <img src={item.multimedia[1].url} /> */}
                                 </div>
                             </li>
                         )
