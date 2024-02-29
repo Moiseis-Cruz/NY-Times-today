@@ -1,13 +1,13 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import { AppRoutes } from './pages/routes'
-
 
 function App() {
 
   return (
-    <>
-      <AppRoutes />
-    </>
+    <section>
+      <h1>Menu Principal</h1>
+      <Outlet />
+    </section>
   )
 }
 
