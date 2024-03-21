@@ -20,7 +20,7 @@ const routes = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "news",
+        path: "/news/:id",
         element: <PostNews />
       }
     ]
