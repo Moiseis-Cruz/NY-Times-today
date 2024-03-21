@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 async function getDatos(){
     const response = await fetch("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=0wYvx3BOlpmF8IVe2RIV0DK1IZv7vXY1");
-    const data = await response.json()
+    const data = await response.json();
     return data.results
 }
 
 export const Main = () => {
 
-    const [ news, setNews ] = useState({
+    const [ homeNews, setHomeNews ] = useState({
         newsList: []
     })
 
@@ -17,7 +17,7 @@ export const Main = () => {
         const fetchData = async () => {
             const data = await getDatos();
 
-            setNews({
+            setHomeNews({
                 newsList: data
             })
         }
@@ -29,13 +29,13 @@ export const Main = () => {
         <section>
             <ul>
                 {
-                    news.newsList.map((item, index) => {
+                    homeNews.newsList.map((item, index) => {
                         return(
                             <li key={index} style={{border: "2px solid green"}}>
-                                <Link to="/news">
+                                <Link to={`/news/${item.id}`}>
                                     <div>
                                         <h2>{item.title}</h2>
-                                        {news.newsList === null || news.newsList === undefined ? <img src={item.multimedia[1].url} /> : <p>Imagem não disponível</p>}
+                                        {homeNews.newsList === null || homeNews.newsList === undefined ? <img src={item.multimedia[1].url} /> : <p>Imagem não disponível</p>}
                                     </div>
                                 </Link>
                             </li>
@@ -46,3 +46,9 @@ export const Main = () => {
         </section>
     )
 }
+
+/*
+
+{homeNews.newsList !== null && homeNews.newsList !== undefined ? <img src={item.multimedia[1].url} alt={item.title} /> : <p>Imagem não disponível</p>}
+
+*/
