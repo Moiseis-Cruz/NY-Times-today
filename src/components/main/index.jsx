@@ -6,16 +6,16 @@ async function getDatos(){
         const response = await fetch("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=0wYvx3BOlpmF8IVe2RIV0DK1IZv7vXY1");
 
         if(!response.ok){
-            throw new Error(`York Times Developer Network API returned status code ${response.status}`)
-        }
+            throw new Error(`York Times Developer Network API returned status code ${response.status}`);
+        };
         
         const data = await response.json();
 
         return data.results
     } catch (error) {
         console.error(`Error fetching York Times Developer Network API ${error.message}`);
-    }
-}
+    };
+};
 
 export const Main = () => {
 
@@ -29,10 +29,10 @@ export const Main = () => {
 
             setHomeNews({
                 newsList: data
-            })
-        }
+            });
+        };
 
-        fetchData()
+        fetchData();
     }, []);
 
     return(
